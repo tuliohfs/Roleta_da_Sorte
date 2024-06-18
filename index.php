@@ -59,7 +59,7 @@
             position: absolute;
             height: 100%;
             animation: faixaAnim 7s linear infinite;
-            left: 0; /* Garante que a faixa comece da esquerda */
+            left: 0;
         }
 
         .faixa span {
@@ -73,7 +73,7 @@
             color: #FFFFFF;
             background-color: #263d76;
             border: 1px solid #263d76;
-            box-sizing: border-box; /* Evita que a borda afete o tamanho total */
+            box-sizing: border-box;
         }
 
         .faixa span:nth-child(even) {
@@ -89,7 +89,7 @@
             height: 100%;
             width: 6px;
             background-color: red;
-            z-index: 1; /* Coloca a linha indicadora atrás dos números */
+            z-index: 1;
         }
 
         @keyframes faixaAnim {
@@ -236,7 +236,6 @@
         location.reload(); // Recarrega a página para reiniciar o jogo
     });
 
-    // Inicializa o estado de animação da faixa
     faixa.style.animationPlayState = 'paused';
     </script>
 </body>
