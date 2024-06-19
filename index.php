@@ -40,6 +40,7 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            position: relative;
         }
         h1 {
             color: #263d76;
@@ -53,7 +54,6 @@
             width: 100%;
             height: 100px;
         }
-
         .faixa {
             display: flex;
             position: absolute;
@@ -61,7 +61,6 @@
             animation: faixaAnim 7s linear infinite;
             left: 0;
         }
-
         .faixa span {
             display: flex;
             align-items: center;
@@ -75,23 +74,10 @@
             border: 1px solid #263d76;
             box-sizing: border-box;
         }
-
         .faixa span:nth-child(even) {
             background-color: #FFFFFF;
             color: #263d76;
         }
-
-        #indicator {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            height: 100%;
-            width: 6px;
-            background-color: red;
-            z-index: 1;
-        }
-
         @keyframes faixaAnim {
             0% {
                 transform: translateX(0%);
@@ -100,7 +86,6 @@
                 transform: translateX(-100%);
             }
         }
-
         #start-btn, #reset-btn {
             margin-top: 20px;
             padding: 10px 20px;
@@ -111,9 +96,19 @@
             border: none;
             border-radius: 5px;
         }
-
         #start-btn:hover, #reset-btn:hover {
             background-color: #1a2e5a;
+        }
+        .square {
+            position: absolute;
+            top: 49.59%;
+            left: 50%;
+            width: 50px;
+            height: 125px;
+            border: 3px solid red;
+            transform: translate(-50%, -50%);
+            box-sizing: border-box;
+            z-index: 100;
         }
     </style>
 </head>
@@ -131,11 +126,10 @@
     <div class="container main-content">
         <h1 class="text-center">SHOW DE PRÊMIOS</h1>
         <div class="faixa-container">
-            <div id="indicator"></div>
             <div class="faixa" id="faixa">
                 <?php
-                    // Criar uma lista de números de 1 a 100
-                    $numbers = range(1, 100);
+                    // Criar uma lista de números de 1 a 70
+                    $numbers = range(1, 70);
                     // Embaralhar a lista de números
                     shuffle($numbers);
                     // Exibir os números em spans
@@ -147,6 +141,7 @@
         </div>
         <button id="start-btn">Rodar</button>
         <button id="reset-btn">Reiniciar</button>
+        <div class="square" id="indicator"></div>
     </div>
 
     <!-- Rodapé -->
@@ -224,11 +219,11 @@
                 } else {
                     // Se o número já foi sorteado, continuar a animação por mais 0.5 segundos
                     faixa.style.animationPlayState = 'running';
-                    setTimeout(stopAnimation, 500);
+                    setTimeout(stopAnimation, 250);
                 }
             };
 
-            setTimeout(stopAnimation, 5000); // 5 seconds
+            setTimeout(stopAnimation, 4000); // 4 seconds
         }
     });
 
